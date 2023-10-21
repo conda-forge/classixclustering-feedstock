@@ -1,5 +1,5 @@
 {% set name = "classixclustering" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d5e8e8f3a61f2a9153e189c39833bded508d1064e07a8db1a51e3d67248b5b77
+  sha256: 342006f24a83c01199208abcbb46362f6f47f96ac3f92da1b763a1fde0c285fb
 
 build:
   noarch: python
