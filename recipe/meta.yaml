@@ -10,7 +10,6 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 632263b966a1e5ab0cb3e1565cae9f48e6f8a8c02f0fe384060d24cce48b3e31
 
-
 build:
   noarch: python
   number: 0
@@ -20,13 +19,13 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - python >=3.6
+    - python
     - pip
     - numpy
     - cython
 
   run:
-    - python >=3.6
+    - python
     - pandas
     - requests
     - {{ pin_compatible('numpy') }}
