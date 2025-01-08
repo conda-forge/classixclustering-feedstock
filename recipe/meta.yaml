@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c144de8750f7d8ec8b2d88150a94b3919ce69e0f0900c2346d35f86b558c8265
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -19,13 +19,13 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - numpy
     - cython
 
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - pandas
     - requests
     - {{ pin_compatible('numpy') }}
@@ -33,6 +33,8 @@ requirements:
     - matplotlib-base
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - classix
 
