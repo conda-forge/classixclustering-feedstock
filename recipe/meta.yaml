@@ -1,5 +1,6 @@
 {% set name = "classixclustering" %}
 {% set version = "1.3.1" %}
+{% set python_min = "3.12" %}
 
 package:
   name: {{ name|lower }}
@@ -12,32 +13,33 @@ source:
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ stdlib('c') }}
   host:
     - python {{ python_min }}
     - pip
     - numpy
     - cython
-
   run:
-    - python >={{ python_min }}
+    - python >= {{ python_min }}
     - pandas
     - requests
     - {{ pin_compatible('numpy') }}
-    - scipy ==1.7.0
+    - scipy
     - matplotlib-base
-    - scikit-learn>=0.20
+    - scikit-learn >=0.24,<2.0
 
 test:
   requires:
     - python {{ python_min }}
   imports:
     - classix
+  commands:
+    - python -c "import classix; print('classix imported successfully')"
 
 about:
   home: https://github.com/nla-group/classix
@@ -49,5 +51,5 @@ about:
 
 extra:
   recipe-maintainers:
-    - guettel
     - chenxinye
+    - guettel
