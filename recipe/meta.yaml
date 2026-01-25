@@ -19,8 +19,11 @@ build:
 
 requirements:
   build:
+    build:
+    - {{ compiler('cxx') }}
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
+    - cython
   host:
     - python {{ python_min }}
     - pip
