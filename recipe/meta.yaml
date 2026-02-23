@@ -1,7 +1,8 @@
 {% set python_min = ">=3.12,<3.13" %}
 {% set python_min = ">=3.12,<3.13" %}
+{% set python_min = ">=3.12,<3.13" %}
 {% set name = "classixclustering" %}
-{% set version = "1.4.4" %}
+{% set version = "1.4.5" %}
 {% set python_min = ">=3.12,<3.13" %}
 
 package:
@@ -10,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b9e1adf7ac96ebdf18e4c2cbbe2ac69f694c5ade9488dab87902ab5fb8a7b8d3
+  sha256: 897f1ac94cfdd461ec7d74776000d006cae9de06955325d9755a8dbbc3b477ce
 
 build:
   noarch: python
