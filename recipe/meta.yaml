@@ -1,22 +1,20 @@
+{% set python_min = ">=3.12,<3.13" %}
 {% set name = "classixclustering" %}
-{% set version_info = load_json("https://pypi.org/pypi/{}/json".format(name)) %}
-{% set version = version_info["info"]["version"] %}
-{% set url = version_info["urls"][0]["url"] %}
-{% set sha256 = version_info["urls"][0]["digests"]["sha256"] %}
+{% set version = "1.4.8" %}
 {% set python_min = ">=3.12,<3.13" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
-source:
-  url: {{ url }}
-  sha256: {{ sha256 }}
+source:   
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 2f628d501124d5a617c84c1f65524f3eb8a804bf736c89f40c25bf8c52beef7d
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
@@ -27,13 +25,13 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - numpy >=1.22
+    - numpy 2.3.*
     - cython
   run:
     - python {{ python_min }}
     - pandas >=2.1
     - requests
-    - numpy >=1.22
+    - numpy 2.3.*
     - scipy >=1.11,<2.0
     - matplotlib-base >=3.8
     - scikit-learn >=1.2,<2.0
@@ -56,5 +54,5 @@ about:
 
 extra:
   recipe-maintainers:
-    - chenxinye
     - guettel
+    - chenxinye
