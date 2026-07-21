@@ -11,7 +11,7 @@ source:
   sha256: ab7816e1110b9665679ce0bf54a688f5cea50f5148a38974460057d4d5a28663
 
 build:
-  number: 0
+  number: 1
   script_env:
     - CYTHON_FORCE_REGEN=1
   script: "{{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation"
